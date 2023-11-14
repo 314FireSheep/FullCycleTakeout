@@ -3,7 +3,7 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg: lightblue;
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
@@ -12,6 +12,7 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  color: #597a9e;
 }
 
 /* Set the alert background on the signin and signup pages. */

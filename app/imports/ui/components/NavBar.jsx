@@ -21,7 +21,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
-            <Nav.Link className="px-5" href="https://www.fullcycletakeouthawaii.org/" target="_blank">FULL CYCLE TAKEOUT </Nav.Link>
+            <Nav.Link className="px-5" href="https://www.fullcycletakeouthawaii.org/" target="_blank" rel="noopener noreferrer">FULL CYCLE TAKEOUT </Nav.Link>
             <Nav.Link id="landing" as={NavLink} to="/" key="">Containers</Nav.Link>
             {currentUser ? ([
               <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
