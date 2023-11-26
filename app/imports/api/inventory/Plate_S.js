@@ -1,8 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-class BowlCollection {
+class PlateSCollection {
   constructor() {
-    this.name = 'BowlCollection';
+    this.name = 'PlateSCollection';
     this.collection = new Mongo.Collection(this.name);
     this.schema = new SimpleSchema({
       ID: String,
@@ -14,4 +14,4 @@ class BowlCollection {
     });
   }
 }
-export const Bowl = new BowlCollection();
+export const Plate_S = new PlateSCollection();
