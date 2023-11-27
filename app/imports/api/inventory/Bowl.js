@@ -10,11 +10,11 @@ class BowlCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      status:{
-          type: String,
-          allowedValues: ['in stock', 'out stock'],
-          defaultValue: 'in stock',
-      }
+      status: {
+        type: String,
+        allowedValues: ['in stock', 'out stock'],
+        defaultValue: 'in stock',
+      },
     });
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
