@@ -1,148 +1,62 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Card, Form, Button, Image } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
+import { PageIDs } from '../utilities/ids';
 
 /* A simple static component to render some text for the landing page. */
-const Landing = () => {
-
-  const items = [
-    {
-      name: 'Bowl',
-      quantity: 0,
-      size: '16oz',
-      description: 'One compartment. Green plastic polypro.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/e5e950a0-a431-4503-9725-cda4b68c0934/Untitled+design+%2810%29.png?format=750w',
-    },
-
-    {
-      name: 'Box',
-      quantity: 0,
-      size: '6” x 9” x 2.75”',
-      description: 'One compartment. Clear plastic polypro.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/13aadb16-f679-4793-8378-3ed5cc7c72a3/Copy+of+6x9.png?format=1500w',
-    },
-
-    {
-      name: 'Container_L',
-      quantity: 0,
-      size: '8” x 8” x 2.5”',
-      description: 'Three compartments. Clear plastic polypro.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/71684dea-f0a7-441b-94bf-1b6d16415ab1/Copy+of+9x9.png?format=1500w',
-    },
-
-    {
-      name: 'Container_M',
-      quantity: 0,
-      size: '8” x 8” x 2.5”',
-      description: 'One compartment. Clear plastic polypro.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/71684dea-f0a7-441b-94bf-1b6d16415ab1/Copy+of+9x9.png?format=1500w',
-    },
-
-    {
-      name: 'Container_S',
-      quantity: 0,
-      size: '5” x 5” x 3”',
-      description: 'One compartment. Clear plastic polypro.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/4e63ed2b-810d-4e4d-ad35-358f6356c045/Copy+of+5x5.png?format=1500w',
-    },
-
-    {
-      name: 'Forks',
-      quantity: 0,
-      size: '_',
-      description: 'Utensil',
-      image: 'https://cdn.discordapp.com/attachments/876762078948491337/1172720555363934239/fork.png?ex=65615820&is=654ee320&hm=9885706f59910212d16890ec75cce59cef7f165f8a1491b4bdbefd028cda4d96&',
-    },
-
-    {
-      name: 'Knives',
-      quantity: 0,
-      size: '_',
-      description: 'Utensil',
-      image: 'https://cdn.discordapp.com/attachments/876762078948491337/1172720555116466256/Knife.png?ex=65615820&is=654ee320&hm=fa63db1a6f1cb3554c1f955cb10f8347e2df2ad9afbc2c211e5871a189569e30&',
-    },
-
-    {
-      name: 'Plate_L',
-      quantity: 0,
-      size: '5” x 6.5” x 2.5”',
-      description: 'One compartment. Stainless steel.',
-      image: 'https://images.squarespace-cdn.com/content/v1/607912e0b05e0b4b67ab64d8/73c400a5-af6b-49fa-b5bd-21a05ffde207/Untitled+design+%2834%29.png?format=500w',
-    },
-
-    {
-      name: 'Plate_M',
-      quantity: 0,
-      size: '10”',
-      description: 'One compartment. White melamine.',
-      image: 'https://cdn.discordapp.com/attachments/876762078948491337/1171229606045552811/33597_1-removebg-preview.png?ex=655beb92&is=65497692&hm=6db31ea46ccf93b50d226749e2c358e8252ef7995decf4736588291681f85736&',
-    },
-
-    {
-      name: 'Plate_S',
-      quantity: 0,
-      size: '7”',
-      description: 'One compartment. White melamine.',
-      image: 'https://cdn.discordapp.com/attachments/876762078948491337/1171229606045552811/33597_1-removebg-preview.png?ex=655beb92&is=65497692&hm=6db31ea46ccf93b50d226749e2c358e8252ef7995decf4736588291681f85736&',
-    },
-
-    {
-      name: 'Spoons',
-      quantity: 0,
-      size: '_',
-      description: 'Utensil',
-      image: 'https://cdn.discordapp.com/attachments/876762078948491337/1172720555590438993/spoon.png?ex=65615820&is=654ee320&hm=cbd163229b750add880947936579eae66d9a43cd90624f9828f7e8ad98c7e4c5&',
-    },
-  ];
-
-  return (
-    <Container>
-      <Row className="my-5 text-center">
-        <h1>Order Page</h1>
-      </Row>
-      <Form>
-        <Row>
-          <Col md={8}>
-            <Row>
-              {items.map((item) => (
-                <Col key={item.name} md={6}>
-                  <Card className="mb-3 text-center">
-                    <Card.Header>
-                      <Image src={item.image} width={300} height={300} />
-                      <Card.Title>{item.name}</Card.Title>
-                      <Card.Subtitle>{item.size}</Card.Subtitle>
-                    </Card.Header>
-                    <Card.Body>
-                      <Card.Text>{item.description}</Card.Text>
-                      {/* <Form.Group controlId={`quantity-${item.name}`}>
-                        <Form.Control
-                          className="text-center"
-                          type="number"
-                          min="0"
-                          onChange={(e) => handleQuantityChange(parseInt(e.target.value, 10), item.name)}
-                        />
-                      </Form.Group> */}
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+const Landing = () => (
+  <div id={PageIDs.landingPage}>
+    <div className="landing-green-background">
+      <Container className="text-center">
+        <h1 style={{ paddingTop: '20px', color: 'white', fontSize: '36pt' }}>
+          Welcome to Bowfolios
+        </h1>
+        <h3 style={{ paddingBottom: '20px', color: 'white' }}>
+          Profiles, projects, and interest areas for the UH Community
+        </h3>
+      </Container>
+    </div>
+    <div className="landing-white-background">
+      <Container className="justify-content-center text-center">
+        <h2 style={{ color: '#376551' }}>Start by making your profile....</h2>
+        <Row md={1} lg={2}>
+          <Col xs={6}>
+            <Image src="/images/home-page.png" width={500} />
           </Col>
-          <Col md={4}>
-            <Card className="mb-3">
-              <Card.Body>
-                <Card.Title>Selected Items</Card.Title>
-                {/* <ul>
-                  {order.map((item) => item.quantity > 0 && <li>{item.name} {item.quantity}</li>)}
-                </ul> */}
-                <Button variant="primary" type="submit">Place Order</Button>
-              </Card.Body>
-            </Card>
+          <Col xs={6}>
+            <Image src="/images/profiles-page.png" width={500} />
           </Col>
         </Row>
-      </Form>
-    </Container>
-  );
-};
+      </Container>
+    </div>
+    <div className="landing-green-background">
+      <Container className="justify-content-center text-center">
+        <h2 style={{ color: 'white' }}>...then add your projects</h2>
+        <Row md={1} lg={2}>
+          <Col xs={6}>
+            <Image src="/images/add-project-page.png" width={500} />
+          </Col>
+          <Col xs={6}>
+            <Image src="/images/projects-page.png" width={500} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+    <div className="landing-white-background text-center">
+      <h2 style={{ color: '#376551' }}>
+        Connect to people and projects with shared interests!
+      </h2>
+      <Container>
+        <Row md={1} lg={2}>
+          <Col xs={6}>
+            <Image src="/images/interests-page.png" width={500} />
+          </Col>
+          <Col xs={6}>
+            <Image src="/images/filter-page.png" width={500} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  </div>
+);
 
 export default Landing;

@@ -9,6 +9,9 @@ module.exports = {
     'plugin:meteor/recommended',
     'airbnb',
   ],
+  globals: {
+    Assets: true, // Meteor disallows importing of Assets, see https://docs.meteor.com/api/assets.html
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
