@@ -96,6 +96,15 @@ class NavBar {
     await testController.click(`#${ComponentIDs.loginDropdown}`);
     await testController.click(`#${ComponentIDs.loginDropdownSignUp}`);
   }
+
+  async gotoSearchPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.searchForm}`);
+  }
 }
 
 export const navBar = new NavBar();

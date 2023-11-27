@@ -30,6 +30,8 @@ export const ComponentIDs = {
   signUpFormEmail: 'signUpFormEmail',
   signUpFormPassword: 'signUpFormPassword',
   signUpFormSubmit: 'signUpFormSubmit',
+  searchForm: 'searchForm',
+  searchFormSubmit: 'searchFormSubmit',
 };
 
 export const PageIDs = {
@@ -45,4 +47,5 @@ export const PageIDs = {
   signInPage: 'signInPage',
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
+  searchPage: 'searchPage',
 };
