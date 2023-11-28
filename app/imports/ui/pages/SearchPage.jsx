@@ -35,7 +35,7 @@ const SearchPage = () => {
                   className="p-3"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="my-3 px-5" id={ComponentIDs.searchFormSubmit}>Search</Button>
+              <Button variant="primary" type="submit" className="my-3 px-5" id="searchBut">Search</Button>
             </Form>
           </Card>
         </Col>

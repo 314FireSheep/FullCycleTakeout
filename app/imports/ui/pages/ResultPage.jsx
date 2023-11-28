@@ -11,6 +11,7 @@ import { Interests } from '../../api/interests/Interests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PageIDs } from '../utilities/ids';
 
 let qrurl = '';
 
@@ -49,7 +50,7 @@ const ResultPage = () => {
   const order = Orders.collection.findOne({ _id: OrderId });
   console.log(order);
   return ready ? (
-    <Container className="mt-5">
+    <Container className="mt-5" id={PageIDs.resultPage}>
       <Row className="justify-content-center text-center">
         <h1>Thank you for ordering</h1>
         <br />

@@ -1,9 +1,10 @@
 import { Selector } from 'testcafe';
 import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
+import { resultPage } from './result.page';
 
-class SearchPage {
+class ConfirmationPage {
   constructor() {
-    this.pageId = `#${PageIDs.searchPage}`;
+    this.pageId = `#${PageIDs.confirmationPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,12 +14,13 @@ class SearchPage {
   }
 
   /** Checks this page is displayed, then adds a new project */
-  async search(testController, searchValue) {
+  async confirmation(testController) {
+    await testController.wait(1000);
     await this.isDisplayed(testController);
-    await testController.typeText(`#${ComponentIDs.searchForm}`, searchValue);
-    await testController.click(Selector('#searchBut'));
-    await testController.wait(6000);
+    await testController.click(Selector('#cashBut'));
+    await testController.click(Selector('.swal-button--confirm'));
+    await testController.wait(5000);
   }
 }
 
-export const searchPage = new SearchPage();
+export const confirmationPage = new ConfirmationPage();

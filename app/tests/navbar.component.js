@@ -103,7 +103,16 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click(`#${ComponentIDs.searchForm}`);
+    await testController.click(`#${ComponentIDs.searchMenu}`);
+  }
+
+  async gotoOrderPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.orderMenu}`);
   }
 }
 
