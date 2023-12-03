@@ -1,3 +1,3 @@
-[![ci-bowfolios](https://github.com/bowfolios/bowfolios/actions/workflows/ci.yml/badge.svg)](https://github.com/bowfolios/bowfolios/actions/workflows/ci.yml)
+[![ci-FullCycleTajeout](https://github.com/314firesheep/FullCycleTakeout/actions/workflows/ci.yml/badge.svg)](https://github.com/314firesheeo/FullCycleTakeout/actions/workflows/ci.yml)
 
-For details, please see [http://bowfolios.github.io/](https://bowfolios.github.io/).
+For details, please see [http://314firesheep.github.io/](https://314firesheep.github.io/).
