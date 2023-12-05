@@ -13,6 +13,7 @@ import { Interests } from '../../api/interests/Interests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const ConfirmationPage = () => {
   const location = useLocation();
@@ -58,7 +59,7 @@ const ConfirmationPage = () => {
     return <Navigate to="/" replace />;
   }
   return ready ? (
-    <Container>
+    <Container id={PageIDs.confirmationPage}>
       <Row className="my-5 text-center">
         <h1>Confirmation Page</h1>
       </Row>
@@ -81,16 +82,16 @@ const ConfirmationPage = () => {
       <Row className="py-4 justify-content-center text-center">
         <Col className="col-10" xs={6} md={6}>
 
-          <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2">restart Order</Button>
+          <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2" id={ComponentIDs.restartBut}>restart Order</Button>
 
-          <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100">Credit Card</Button>
+          <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100" id={ComponentIDs.creditBut}>Credit Card</Button>
           { activeButton === 'Button1' && <Col>Please tap your credit card</Col> }
-          <Button onClick={() => handleClick('Button2')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Student ID</Button>
+          <Button onClick={() => handleClick('Button2')} disabled={loading} variant="primary" type="submit" className="w-100 my-2" id={ComponentIDs.studentidBut}>Student ID</Button>
           {
             activeButton === 'Button2' && <Col>Please provide you student ID to rent your container(s) <br /> direct to result page in 5 seconds....</Col>
           }
 
-          <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Cash</Button>
+          <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2" id="cashBut">Cash</Button>
           {
             activeButton === 'Button3' && <Col>Please pay 5$ to rent your container(s) <br /> direct to result page in 5 seconds....</Col>
           }
