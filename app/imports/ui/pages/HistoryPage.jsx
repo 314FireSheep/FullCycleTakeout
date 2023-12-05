@@ -1,47 +1,51 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Orders } from '../../api/order/Order';
+import LoadingSpinner from '../components/LoadingSpinner';
 
+function getOrderData(ids) {
+  return Orders.collection.find({ _id: { $in: ids } }).fetch();
+}
 const HistoryPage = () => {
-
-  const [OrderId, setOrderid] = useState();
-  const navigate = useNavigate();
-
-  const handleSearch = () => {
-
-    navigate(`/result/${OrderId}`);
-  };
-  return (
-    <Container className="mt-5">
-
+  const { ready, currentUser } = useTracker(() => {
+    const sub1 = Meteor.subscribe(Orders.userPublicationName);
+    const user = Meteor.user() || {}; // Handle null case to avoid delays
+    return {
+      ready: sub1.ready(),
+      currentUser: user,
+    };
+  }, []);
+  const OrderData = getOrderData(currentUser.profile?.order || []);
+  return ready && currentUser ? (
+    <Container className="mt-5 vh-100">
       <Row className="justify-content-center">
-        <Col md={7}>
-          <h1 className="text-center mb-4">Search Page</h1>
+        <Col>
+          <Col className="text-center">
+            <h2>History Page</h2>
+          </Col>
+          <Row xs={1} md={2} className="g-4 justify-content-center m-3">
+            <Card className="p-5 text-center" style={{ backgroundColor: '#e1ecf7' }}>
+              <ul>
+                {OrderData.map((data, index) => (
+                  <li key={index}>
+                    <div>
+                      {Object.entries(data).map(([key, value]) => (
+                        <div key={key}>
+                          <strong>{key}:</strong> {value}
+                        </div>
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </Row>
         </Col>
       </Row>
-
-      <Row className="justify-content-center mt-1">
-        <Col className="col-10" xs={6} md={10}>
-          <Card className=" h-100 p-5 text-center" style={{ backgroundColor: '#e1ecf7' }}>
-            <Form onSubmit={handleSearch}>
-
-              <Form.Group controlId="formUsernameSignUp" className="my-3">
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Order ID"
-                  onChange={(e) => setOrderid(e.target.value)}
-                  required
-                  className="p-3"
-                />
-              </Form.Group>
-              <Button variant="primary" type="submit" className="my-3 px-5">Search</Button>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
-
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
 export default HistoryPage;
