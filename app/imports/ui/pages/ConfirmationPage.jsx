@@ -20,9 +20,11 @@ const ConfirmationPage = () => {
       ready: sub1.ready(),
     };
   }, []);
-
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user() ? Meteor.user().username : '',
+  }), []);
   const handleClick = (buttonName) => {
-    Meteor.call(addOrder, location.state, (error, id) => {
+    Meteor.call(addOrder, location.state, currentUser, (error, id) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
