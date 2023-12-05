@@ -5,12 +5,6 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { addOrder } from '../../startup/both/Methods';
-import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
-import { Projects } from '../../api/projects/Projects';
-import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
-import { Profiles } from '../../api/profiles/Profiles';
-import { Interests } from '../../api/interests/Interests';
-import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -21,15 +15,9 @@ const ConfirmationPage = () => {
   const [activeButton, setActiveButton] = useState(null);
   const { ready } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
-    const sub1 = Meteor.subscribe(ProfilesProjects.userPublicationName);
-    const sub2 = Meteor.subscribe(Projects.userPublicationName);
-    const sub3 = Meteor.subscribe(ProjectsInterests.userPublicationName);
-    const sub4 = Meteor.subscribe(Profiles.userPublicationName);
-    const sub5 = Meteor.subscribe(Interests.userPublicationName);
-    const sub6 = Meteor.subscribe(ProfilesInterests.userPublicationName);
-    const sub7 = Meteor.subscribe(Orders.userPublicationName);
+    const sub1 = Meteor.subscribe(Orders.userPublicationName);
     return {
-      ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready() && sub7.ready(),
+      ready: sub1.ready(),
     };
   }, []);
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
@@ -10,12 +11,9 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import Profiles from '../pages/Profiles';
-import Projects from '../pages/Projects';
-import Interests from '../pages/Interests';
 import Home from '../pages/Home';
-import Filter from '../pages/Filter';
-import AddProject from '../pages/AddProject';
+import HistoryPage from '../pages/HistoryPage';
+import ReturnPage from '../pages/ReturnPage';
 import OrderPage from '../pages/OrderPage';
 import SearchPage from '../pages/SearchPage';
 import ResultPage from '../pages/ResultPage';
@@ -31,16 +29,12 @@ const App = () => (
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/interests" element={<Interests />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
-        <Route path="/profiles" element={<Profiles />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/order" element={<OrderPage />} />
         <Route path="/result/:OrderId" element={<ResultPage />} />
-        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
-        <Route path="/addproject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
+        <Route path="/history" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>} />
+        <Route path="/search" element={<AdminRoute><SearchPage /></AdminRoute>} />
+        <Route path="/return" element={<AdminRoute><ReturnPage /></AdminRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -59,6 +53,12 @@ const ProtectedRoute = ({ children }) => {
   return isLogged ? children : <Navigate to="/signin" />;
 };
 
+const AdminRoute = ({ children }) => {
+  const isLogged = Meteor.userId() !== null;
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+  return isLogged && isAdmin ? children : <Navigate to="/" />;
+};
+
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -68,4 +68,11 @@ ProtectedRoute.defaultProps = {
   children: <Home />,
 };
 
+AdminRoute.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+AdminRoute.defaultProps = {
+  children: <Home />,
+};
 export default App;
