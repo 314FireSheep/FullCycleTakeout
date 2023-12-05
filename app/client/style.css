@@ -3,10 +3,10 @@
 
 /* Create some Bowfolio CSS variables. */
 :root {
-  --bowfolio-navbar-bg: #376551;
-  --bowfolio-navbar-bg-rgb: 55, 101, 81;
-  --bowfolio-navbar-text: white;
-  --bowfolio-navbar-highlight-text: var(--bs-gray-500);
+  --firesheep-navbar-bg: #2f3e46;
+  --firesheep-navbar-text: white;
+  --firesheep-navbar-highlight-text: var(--bs-gray-500);
+  --firesheep-navbar-bg-rgb: 36, 36, 36;
 }
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
@@ -52,4 +52,9 @@ body {
 .reset-margins {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.btn {
+  background-color: #84a98c;
+  border-color: #84a98c;
 }
