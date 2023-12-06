@@ -1,12 +1,15 @@
 import React from 'react';
-import { Container, Row, Col, Image, Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
+import swal from 'sweetalert';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { returnOrder } from '../../startup/both/Methods';
 
 const ReturnPage = () => {
+  const navigate = useNavigate();
   const { ready } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
     const sub1 = Meteor.subscribe(Orders.userPublicationName);
@@ -16,21 +19,28 @@ const ReturnPage = () => {
   }, []);
   const { OrderId } = useParams();
 
-  const order = Orders.collection.findOne({ _id: OrderId }) || {};
-  function getPropertyTypes(obj) {
-    const result = {};
-    Object.keys(obj).forEach((key) => {
-      result[key] = typeof obj[key];
+  const order = Orders.collection.findOne({ _id: OrderId });
+
+  const handleReturn = () => {
+    Meteor.call(returnOrder, OrderId, 'returned', (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Project added successfully', 'success').then((value) => {
+          if (value) {
+            navigate('/search');
+          }
+        });
+      }
     });
-    return result;
-  }
+  };
 
   return ready ? (
     <Container className="mt-5">
       <Row className="justify-content-center text-center">
-        <h1>Thank you for ordering</h1>
+        <h1>Make Sure all the items are ready to return</h1>
         <br />
-        <h3>Your Order ID: {OrderId}</h3>
+        <h3>Order ID: {OrderId}</h3>
       </Row>
 
       <Row xs={1} md={2} className="g-4 justify-content-center m-3">
@@ -52,11 +62,8 @@ const ReturnPage = () => {
                 </ul>
               </Card>
             </Col>
-
+            <Button onClick={handleReturn} variant="primary" type="submit" className="w-100 my-2">Return</Button>
           </Card.Title>
-          <Card.Header className="text-center pb-5 mt-4" style={{ backgroundColor: '#FFFFFF' }}>
-            <h5 className="py-4">Please save this QRcode or Order ID to access this page again.</h5>
-          </Card.Header>
         </Card>
       </Row>
     </Container>

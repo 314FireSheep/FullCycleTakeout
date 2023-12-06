@@ -84,5 +84,13 @@ Meteor.methods({
     return id;
   },
 });
+const returnOrder = 'Order.return';
+Meteor.methods({
+  // eslint-disable-next-line meteor/audit-argument-checks
+  'Order.return'(orderId, status) {
+    const id = Orders.collection.update(orderId, { $set: { status: status } });
+    return id;
+  },
+});
 
-export { updateProfileMethod, addProjectMethod, addOrder };
+export { updateProfileMethod, addProjectMethod, addOrder, returnOrder };
