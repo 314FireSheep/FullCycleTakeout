@@ -34,7 +34,7 @@ const App = () => (
         <Route path="/result/:OrderId" element={<ResultPage />} />
         <Route path="/history" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>} />
         <Route path="/search" element={<AdminRoute><SearchPage /></AdminRoute>} />
-        <Route path="/return" element={<AdminRoute><ReturnPage /></AdminRoute>} />
+        <Route path="/return/:OrderId" element={<AdminRoute><ReturnPage /></AdminRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

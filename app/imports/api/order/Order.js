@@ -10,10 +10,11 @@ class OrdersCollection {
 
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      status: {
-        type: String,
-        allowedValues: ['pending', 'returned', 'rented'],
-        defaultValue: 'pending',
+      // Enabling blackbox behavior to accept unknown keys
+      blackboxField: {
+        type: Object,
+        optional: true,
+        blackbox: true,
       },
     });
     this.userPublicationName = `${this.name}.publication.user`;

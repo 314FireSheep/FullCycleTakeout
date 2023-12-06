@@ -28,15 +28,14 @@ const ConfirmationPage = () => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Project added successfully', 'success');
+        swal('Success', 'Project added successfully', 'success').then((value) => {
+          if (value) {
+            setLoading(true);
+            navigate(`/result/${id}`);
+          }
+        });
       }
       setActiveButton(buttonName === activeButton ? null : buttonName);
-      setLoading(true);
-      if (buttonName === 'Button2' || buttonName === 'Button3') {
-        setTimeout(() => {
-          navigate(`/result/${id}`);
-        }, 5000);
-      }
     });
   };
 
@@ -70,20 +69,10 @@ const ConfirmationPage = () => {
 
       <Row className="py-4 justify-content-center text-center">
         <Col className="col-10" xs={6} md={6}>
-
           <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2">restart Order</Button>
-
           <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100">Credit Card</Button>
-          { activeButton === 'Button1' && <Col>Please tap your credit card</Col> }
           <Button onClick={() => handleClick('Button2')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Student ID</Button>
-          {
-            activeButton === 'Button2' && <Col>Please provide you student ID to rent your container(s) <br /> direct to result page in 5 seconds....</Col>
-          }
-
           <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Cash</Button>
-          {
-            activeButton === 'Button3' && <Col>Please pay 5$ to rent your container(s) <br /> direct to result page in 5 seconds....</Col>
-          }
         </Col>
       </Row>
     </Container>

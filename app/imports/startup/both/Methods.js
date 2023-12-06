@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { Projects } from '../../api/projects/Projects';
 import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -73,11 +74,11 @@ Meteor.methods({
   'Order.add'(order, userId) {
     const id = Orders.collection.insert(order);
     const userToUpdate = Meteor.users.findOne({ username: userId });
-    if (userToUpdate) {
+    if (userToUpdate && !Roles.userIsInRole(Meteor.userId(), 'admin')) {
       // Update the user's document
       Meteor.users.update(
         { _id: userToUpdate._id },
-        { $set: { 'profile.order': [...userToUpdate.profile.order, id] } },
+        { $set: { 'profile.order': [...userToUpdate.profile?.order || [], id] } },
       );
     }
     return id;
