@@ -30,6 +30,15 @@ export const ComponentIDs = {
   signUpFormEmail: 'signUpFormEmail',
   signUpFormPassword: 'signUpFormPassword',
   signUpFormSubmit: 'signUpFormSubmit',
+  searchForm: 'searchForm',
+  searchFormSubmit: 'searchFormSubmit',
+  searchMenu: 'searchMenu',
+  orderMenu: 'orderMenu',
+  restartBut: 'restartBut',
+  cashBut: 'cashBut',
+  studentidBut: 'studentidBut',
+  creditBut: 'creditBut',
+  submitBut: 'submitBut',
 };
 
 export const PageIDs = {
@@ -45,4 +54,8 @@ export const PageIDs = {
   signInPage: 'signInPage',
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
+  searchPage: 'searchPage',
+  resultPage: 'resultPage',
+  confirmationPage: 'confirmationPage',
+  orderPage: 'orderPage',
 };

@@ -7,6 +7,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { addOrder } from '../../startup/both/Methods';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PageIDs } from '../utilities/ids';
 
 const ConfirmationPage = () => {
   const location = useLocation();
@@ -47,7 +48,7 @@ const ConfirmationPage = () => {
     return <Navigate to="/" replace />;
   }
   return ready ? (
-    <Container>
+    <Container id={PageIDs.confirmationPage}>
       <Row className="my-5 text-center">
         <h1>Confirmation Page</h1>
       </Row>
