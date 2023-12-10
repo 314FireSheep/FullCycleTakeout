@@ -5,12 +5,18 @@ import { confirmationPage } from './confirmation.page';
 class OrderPage {
   constructor() {
     this.pageId = `#${PageIDs.orderPage}`;
+    this.pageID2 = `#${PageIDs.confirmationPage}`;
     this.pageSelector = Selector(this.pageId);
+    this.pageSelector2 = Selector(this.pageID2);
   }
 
   /** Checks that this page is currently displayed. */
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
+  }
+
+  async isDisplayedSecond(testController) {
+    await testController.expect(this.pageSelector2.exists).ok();
   }
 
   //
@@ -38,6 +44,12 @@ class OrderPage {
   async confirmation(testController) {
     await this.isDisplayed(testController);
     await testController.click(Selector('#orderBut'));
+  }
+
+  async confirmationSecond(testController) {
+    await this.isDisplayedSecond(testController);
+    await testController.click(Selector('#cashBut'));
+    await testController.click(Selector('.swal-button--confirm'));
   }
 }
 

@@ -15,7 +15,7 @@ class ConfirmationPage {
 
   /** Checks this page is displayed, then adds a new project */
   async confirmation(testController) {
-    await testController.wait(1000);
+    //await testController.wait(1000);
     await this.isDisplayed(testController);
     await testController.click(Selector('#cashBut'));
     await testController.click(Selector('.swal-button--confirm'));

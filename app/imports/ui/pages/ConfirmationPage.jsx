@@ -73,7 +73,7 @@ const ConfirmationPage = () => {
           <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2">restart Order</Button>
           <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100">Credit Card</Button>
           <Button onClick={() => handleClick('Button2')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Student ID</Button>
-          <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Cash</Button>
+          <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2" id="cashBut">Cash</Button>
         </Col>
       </Row>
     </Container>
