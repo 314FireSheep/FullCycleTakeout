@@ -33,7 +33,7 @@ const SearchPage = () => {
         </Col>
       </Row>
 
-      <Row className="justify-content-center mt-1 mb-5 ani">
+      <Row className="justify-content-center mt-1 mb-5">
         <Col xs={11} md={8}>
           <Card className=" h-100 p-5 text-center" style={{ backgroundColor: 'white' }}>
             <Form onSubmit={handleSearch}>
