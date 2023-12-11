@@ -11,7 +11,6 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import Home from '../pages/Home';
 import HistoryPage from '../pages/HistoryPage';
 import ReturnPage from '../pages/ReturnPage';
 import OrderPage from '../pages/OrderPage';
@@ -65,7 +64,7 @@ ProtectedRoute.propTypes = {
 };
 
 ProtectedRoute.defaultProps = {
-  children: <Home />,
+  children: <Landing />,
 };
 
 AdminRoute.propTypes = {
@@ -73,6 +72,6 @@ AdminRoute.propTypes = {
 };
 
 AdminRoute.defaultProps = {
-  children: <Home />,
+  children: <Landing />,
 };
 export default App;
