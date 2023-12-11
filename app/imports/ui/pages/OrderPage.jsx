@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Form, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { PageIDs } from '../utilities/ids';
 
 const OrderPage = () => {
   const navigate = useNavigate();
@@ -96,7 +97,7 @@ const OrderPage = () => {
   };
 
   return (
-    <Container>
+    <Container id={PageIDs.orderPage}>
       <Row className="my-5 mx-1 text-center">
         <Container className="header text-white">
           <h1>Order Page</h1>
@@ -140,7 +141,7 @@ const OrderPage = () => {
               </Card.Body>
               <Card.Footer className="text-center py-3 ani" style={{ backgroundColor: '#84a98c' }}>
                 <Container fluid>
-                  <Button className="px-5 p-3" type="submit">Place Order</Button>
+                  <Button className="px-5 p-3" type="submit" id="orderBut">Place Order</Button>
                 </Container>
               </Card.Footer>
             </Card>

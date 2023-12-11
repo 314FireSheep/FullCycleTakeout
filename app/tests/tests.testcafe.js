@@ -51,7 +51,7 @@ test('Test that return page and function works', async (testController) => {
   await signInPage.signin(testController, credentials.adminUser, credentials.password);
   await navBar.gotoSearchPage(testController);
   const firstTdFirstTr = Selector('tbody tr:first-child td:first-child').innerText;
-  const text = await firstTdFirstTr();
+  const text = await firstTdFirstTr;
   await searchPage.search(testController, text);
   await returnPage.isDisplayed(testController);
   await returnPage.returnOrder(testController);

@@ -6,7 +6,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const SearchPage = () => {
 
@@ -36,7 +36,7 @@ const SearchPage = () => {
       <Row className="justify-content-center mt-1 mb-5">
         <Col xs={11} md={8}>
           <Card className=" h-100 p-5 text-center" style={{ backgroundColor: 'white' }}>
-            <Form onSubmit={handleSearch}>
+            <Form onSubmit={handleSearch} id={ComponentIDs.searchForm}>
               <Form.Group controlId="formUsernameSignUp" className="my-3">
                 <Form.Control
                   type="text"
@@ -46,7 +46,7 @@ const SearchPage = () => {
                   className="p-3"
                 />
               </Form.Group>
-              <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani mb-5">Search</Button>
+              <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani mb-5" id="searchBut">Search</Button>
               {
                 ready && AdminUser ? (
                   <div className="table-responsive">

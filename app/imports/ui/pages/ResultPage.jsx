@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PageIDs } from '../utilities/ids';
 
 const QRCode = require('qrcode');
 
@@ -36,7 +37,7 @@ const ResultPage = () => {
   });
   const order = Orders.collection.findOne({ _id: OrderId });
   return ready ? (
-    <Container className="mt-5">
+    <Container className="mt-5" id={PageIDs.resultPage}>
       <Row className="justify-content-center text-center header text-white mx-1">
         <h1>Thank you for ordering</h1>
         <br />
