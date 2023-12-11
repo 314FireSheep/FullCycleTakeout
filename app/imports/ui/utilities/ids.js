@@ -60,4 +60,5 @@ export const PageIDs = {
   confirmationPage: 'confirmationPage',
   orderPage: 'orderPage',
   historyPage: 'historyPage',
+  returnPage: 'returnPage',
 };

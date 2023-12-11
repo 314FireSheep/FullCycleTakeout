@@ -7,6 +7,7 @@ import { searchPage } from './search.page';
 import { resultPage } from './result.page';
 import { orderPage } from './order.page';
 import { historyPage } from './history.page';
+import { returnPage } from './return.page';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
@@ -52,6 +53,6 @@ test('Test that return page and function works', async (testController) => {
   const firstTdFirstTr = Selector('tbody tr:first-child td:first-child').innerText;
   const text = await firstTdFirstTr();
   await searchPage.search(testController, text);
-  await resultPage.isDisplayed(testController);
-  await resultPage.returnOrder(testController);
+  await returnPage.isDisplayed(testController);
+  await returnPage.returnOrder(testController);
 });

@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 import { PageIDs } from '../imports/ui/utilities/ids';
 
-class ResultPage {
+class ReturnPage {
   constructor() {
-    this.pageId = `#${PageIDs.resultPage}`;
+    this.pageId = `#${PageIDs.returnPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -12,6 +12,10 @@ class ResultPage {
     await testController.wait(5000);
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async returnOrder(testController) {
+    await testController.click(Selector('#returnOrder'));
+  }
 }
 
-export const resultPage = new ResultPage();
+export const returnPage = new ReturnPage();
