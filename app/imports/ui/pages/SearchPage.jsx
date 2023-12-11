@@ -46,22 +46,35 @@ const SearchPage = () => {
                   className="p-3"
                 />
               </Form.Group>
-              <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani">Search</Button>
+              <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani mb-5">Search</Button>
               {
                 ready && AdminUser ? (
-                  <ul>
-                    {OrderData.map((data, index) => (
-                      <li key={index}>
-                        <div>
-                          {Object.entries(data).map(([key, value]) => (
-                            <div key={key}>
-                              <strong>{key}:</strong> {value}
-                            </div>
-                          ))}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <table>
+                    <thead>
+                      <tr style={{ backgroundColor: '#536B60' }} className="text-white">
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>Items</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {OrderData.map((data, index) => (
+                        <tr key={index}>
+                          <td className="px-4">{Object.values(data)[0]}</td>
+                          <td>{Object.values(data)[1]}</td>
+                          <td>
+                            {Object.entries(data)
+                              .slice(2)
+                              .map(([key, value]) => (
+                                <div key={key}>
+                                  <strong>{key}:</strong> {value}
+                                </div>
+                              ))}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 ) : <LoadingSpinner />
               }
             </Form>

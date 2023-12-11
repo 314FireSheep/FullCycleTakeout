@@ -70,8 +70,8 @@ const ConfirmationPage = () => {
 
       <Row className="py-4 justify-content-center text-center">
         <Col className="col-10" xs={6} md={6}>
-          <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2">restart Order</Button>
-          <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100">Credit Card</Button>
+          <Button onClick={handleEdit} variant="primary" disabled={loading} type="submit" className="w-100 my-2">Restart Order</Button>
+          <Button onClick={() => handleClick('Button1')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Credit Card</Button>
           <Button onClick={() => handleClick('Button2')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Student ID</Button>
           <Button onClick={() => handleClick('Button3')} disabled={loading} variant="primary" type="submit" className="w-100 my-2">Cash</Button>
         </Col>

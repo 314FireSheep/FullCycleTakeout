@@ -75,6 +75,11 @@ body {
   padding: 40px ;
   border-radius: 25px;
 }
+.header2 {
+  background-color: #908D8B;
+  padding: 40px ;
+  border-radius: 25px;
+}
 
 .ani {
   transition: transform 0.3s;
@@ -96,3 +101,21 @@ body {
   color: #84a98c;
 }
 
+table {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+table, td, th {
+  border: 1px solid #ddd !important;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #84a98c;
+}
