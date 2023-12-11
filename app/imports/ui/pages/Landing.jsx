@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Image, Nav, Row } from 'react-bootstrap';
-import { PageIDs } from '../utilities/ids';
 import { NavLink } from 'react-router-dom';
+import { PageIDs } from '../utilities/ids';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (

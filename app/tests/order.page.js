@@ -1,6 +1,5 @@
 import { Selector } from 'testcafe';
-import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
-import { confirmationPage } from './confirmation.page';
+import { PageIDs } from '../imports/ui/utilities/ids';
 
 class OrderPage {
   constructor() {

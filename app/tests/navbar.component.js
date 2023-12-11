@@ -66,7 +66,7 @@ class NavBar {
   }
 
   async gotoOrderPage(testController) {
-    //await this.ensureLogout(testController);
+    // await this.ensureLogout(testController);
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
