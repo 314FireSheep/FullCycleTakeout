@@ -26,35 +26,39 @@ const HistoryPage = () => {
           <h1 className="text-center">History Page</h1>
         </Col>
       </Row>
-      <Row xs={11} md={8} className="g-4 justify-content-center m-3">
-        <Card className="p-5 text-center" style={{ backgroundColor: 'white' }}>
-          <table>
-            <thead>
-              <tr style={{ backgroundColor: '#536B60' }} className="text-white">
-                <th>ID</th>
-                <th>Status</th>
-                <th>Items</th>
-              </tr>
-            </thead>
-            <tbody>
-              {OrderData.map((data, index) => (
-                <tr key={index}>
-                  <td className="px-4">{Object.values(data)[0]}</td>
-                  <td>{Object.values(data)[1]}</td>
-                  <td>
-                    {Object.entries(data)
-                      .slice(2)
-                      .map(([key, value]) => (
-                        <div key={key}>
-                          <strong>{key}:</strong> {value}
-                        </div>
-                      ))}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </Card>
+      <Row className="justify-content-center mt-1 mb-5">
+        <Col xs={11} md={8}>
+          <Card className="p-5 text-center" style={{ backgroundColor: 'white' }}>
+            <div className="table-responsive">
+              <table className="table">
+                <thead>
+                  <tr style={{ backgroundColor: '#536B60' }} className="text-white">
+                    <th>ID</th>
+                    <th>Status</th>
+                    <th>Items</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {OrderData.map((data, index) => (
+                    <tr key={index}>
+                      <td className="px-4">{Object.values(data)[0]}</td>
+                      <td>{Object.values(data)[1]}</td>
+                      <td>
+                        {Object.entries(data)
+                          .slice(2)
+                          .map(([key, value]) => (
+                            <div key={key}>
+                              <strong>{key}:</strong> {value}
+                            </div>
+                          ))}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+        </Col>
       </Row>
     </Container>
   ) : <LoadingSpinner />;
