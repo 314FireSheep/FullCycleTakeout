@@ -95,8 +95,10 @@ const OrderPage = () => {
 
   return (
     <Container>
-      <Row className="my-5 text-center">
-        <h1>Order Page</h1>
+      <Row className="my-5 mx-1 text-center">
+        <Container className="header text-white">
+          <h1>Order Page</h1>
+        </Container>
       </Row>
       <Form onSubmit={handleSubmit}>
         <Row>
@@ -104,7 +106,7 @@ const OrderPage = () => {
             <Row>
               {items.map((item) => (
                 <Col key={item.name} md={6}>
-                  <Card className="mb-2 text-center" style={{ flex: 1 }}>
+                  <Card className="mb-4 text-center ani" style={{ flex: 1 }}>
                     <Card.Header>
                       <Image src={item.image} width={200} height={200} />
                       <Card.Title>{item.name}</Card.Title>
@@ -127,15 +129,17 @@ const OrderPage = () => {
             </Row>
           </Col>
           <Col md={3}>
-            <Card className="mb-3 p-3 text-white" style={{ backgroundColor: '#2f3e46' }}>
-              <Card.Title className="text-center p-1">Selected Items</Card.Title>
+            <Card className="mb-3 p-3 text-white " style={{ backgroundColor: '#373633' }}>
+              <Card.Header className="text-center p-4"><h3>Selected Items</h3></Card.Header>
               <Card.Body>
                 <ul>
                   { order.map((item) => item.quantity > 0 && <li key={item.name}>{item.name} {item.quantity}</li>)}
                 </ul>
               </Card.Body>
-              <Card.Footer className="text-center py-3">
-                <Button variant="primary" type="submit">Place Order</Button>
+              <Card.Footer className="text-center py-3 ani" style={{ backgroundColor: '#84a98c' }}>
+                <Container fluid>
+                  <Button className="px-5 p-3" type="submit">Place Order</Button>
+                </Container>
               </Card.Footer>
             </Card>
           </Col>

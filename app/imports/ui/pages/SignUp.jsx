@@ -39,13 +39,13 @@ const SignUp = () => {
   }
   return (
     <Container id={PageIDs.signUpPage}>
-      <Row className="justify-content-center">
-        <Col xs={9}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
+      <Row className="justify-content-center mt-5">
+        <Col xs={11} md={8}>
+          <Col className="text-center header text-white">
+            <h1>Register your account</h1>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card className="mt-5 mb-3 p-5 ani">
               <Card.Body>
                 <TextField id={ComponentIDs.signUpFormEmail} name="email" placeholder="E-mail address" />
                 <TextField id={ComponentIDs.signUpFormPassword} name="password" placeholder="Password" type="password" />
@@ -54,10 +54,10 @@ const SignUp = () => {
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="secondary">
+          <Alert variant="secondary" style={{ backgroundColor: '#908D8B', borderColor: '#908D8B' }} className="text-white text-center">
             Already have an account? Login
             {' '}
-            <Link to="/signin">here</Link>
+            <Link to="/signin" style={{ color: 'white' }}>here</Link>
           </Alert>
           {error === '' ? (
             ''

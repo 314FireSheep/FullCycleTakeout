@@ -43,13 +43,13 @@ const SignIn = () => {
   // Otherwise return the Login form.
   return (
     <Container id={PageIDs.signInPage}>
-      <Row className="justify-content-center">
-        <Col xs={9}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
+      <Row className="justify-content-center mt-5">
+        <Col xs={11} md={8}>
+          <Col className="text-center header text-white">
+            <h1>Login to your account</h1>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card className="mt-5 mb-3 p-5 ani">
               <Card.Body>
                 <TextField id={ComponentIDs.signInFormEmail} name="email" placeholder="E-mail address" />
                 <TextField id={ComponentIDs.signInFormPassword} name="password" placeholder="Password" type="password" />
@@ -58,8 +58,8 @@ const SignIn = () => {
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="secondary">
-            <Link to="/signup">Click here to Register</Link>
+          <Alert variant="secondary" style={{ backgroundColor: '#908D8B', borderColor: '#908D8B' }} className="text-center">
+            <Link to="/signup" style={{ color: 'white' }}>Click here to Register</Link>
           </Alert>
           {error === '' ? (
             ''

@@ -14,15 +14,15 @@ const SearchPage = () => {
   return (
     <Container className="mt-5">
 
-      <Row className="justify-content-center">
-        <Col md={7}>
-          <h1 className="text-center mb-4">Search Page</h1>
+      <Row className="justify-content-center mb-5 mx-1">
+        <Col xs={11} md={8} className="header text-white">
+          <h1 className="text-center">Search Page</h1>
         </Col>
       </Row>
 
-      <Row className="justify-content-center mt-1">
-        <Col className="col-10" xs={6} md={10}>
-          <Card className=" h-100 p-5 text-center" style={{ backgroundColor: '#e1ecf7' }}>
+      <Row className="justify-content-center mt-1 mb-5 ani">
+        <Col xs={11} md={8}>
+          <Card className=" h-100 p-5 text-center" style={{ backgroundColor: 'white' }}>
             <Form onSubmit={handleSearch}>
 
               <Form.Group controlId="formUsernameSignUp" className="my-3">
@@ -34,7 +34,7 @@ const SearchPage = () => {
                   className="p-3"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="my-3 px-5">Search</Button>
+              <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani">Search</Button>
             </Form>
           </Card>
         </Col>

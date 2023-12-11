@@ -3,8 +3,8 @@
 
 /* Create some Bowfolio CSS variables. */
 :root {
-  --firesheep-navbar-bg: #2f3e46;
-  --firesheep-navbar-text: white;
+  --firesheep-navbar-bg: #373633;
+  --firesheep-navbar-text: #e8e8e3;
   --firesheep-navbar-highlight-text: var(--bs-gray-500);
   --firesheep-navbar-bg-rgb: 36, 36, 36;
 }
@@ -14,6 +14,10 @@
 body {
   --bs-dark: var(--firesheep-navbar-bg);
   --bs-dark-rgb: var(--firesheep-navbar-bg-rgb);
+  font-family: Roboto, serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  --bs-body-bg: #e8e8e3 ;
 }
 
 /* Color the light Brand and links with dark color */
@@ -54,7 +58,41 @@ body {
   margin-bottom: 0;
 }
 
-.btn {
-  background-color: #84a98c;
-  border-color: #84a98c;
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  --bs-body-bg: white;
 }
+
+.navbar {
+  box-shadow: 10px 1px 10px #2f3e46;
+  font-weight: bold;
+  font-size: large;
+}
+
+.header {
+  background-color: #373633;
+  padding: 40px ;
+  border-radius: 25px;
+}
+
+.ani {
+  transition: transform 0.3s;
+}
+.ani:hover {
+  transform: scale(1.02);
+}
+
+.btn-primary, .btn-primary:visited {
+  background-color: #84a98c !important;
+  border-color: #84a98c !important;
+}
+.btn-primary:hover, .btn-primary:active {
+  background-color: #536B60 !important;
+  border-color: #536B60 !important;
+}
+
+.nav-link:hover {
+  color: #84a98c;
+}
+

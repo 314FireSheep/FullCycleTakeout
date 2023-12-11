@@ -18,7 +18,7 @@ const NavBar = () => {
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '24px' }}><Image src="/images/firesheepBlackLOGO.png" height={50} style={{ marginBottom: 3 }} /> Full Cycle Takeout</span>
+          <span style={{ fontWeight: 800, fontSize: '24px' }}><Image className="pe-2" src="/images/firesheepBlackLOGO.png" height={50} style={{ marginBottom: 3 }} /> Full Cycle Takeout</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={ComponentIDs.basicNavbarNav} />
         <Navbar.Collapse id={ComponentIDs.basicNavbarNav}>
