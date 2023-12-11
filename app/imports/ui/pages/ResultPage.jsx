@@ -36,7 +36,7 @@ const ResultPage = () => {
   });
   const order = Orders.collection.findOne({ _id: OrderId });
   return ready ? (
-    <Container className="mt-5">
+    <Container className="mt-5 mb-5">
       <Row className="justify-content-center text-center header text-white mx-1">
         <h1>Thank you for ordering</h1>
         <br />

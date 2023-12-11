@@ -17,11 +17,12 @@ const NavBar = () => {
 
   const menuStyle = { marginBottom: '0px' };
   const navbarClassName = loggedIn ? 'bg-dark' : 'bg-light';
+  const navbarLogo = loggedIn ? '/images/FireSheepLOGO.png' : '/images/firesheepBlackLOGO.png';
   return (
     <Navbar expand="lg" style={menuStyle} className={navbarClassName}>
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="align-items-center">
-          <span style={{ fontWeight: 800, fontSize: '24px' }}><Image className="pe-2" src="/images/firesheepBlackLOGO.png" height={50} style={{ marginBottom: 3 }} /> Full Cycle Takeout</span>
+          <span style={{ fontWeight: 800, fontSize: '20px' }}><Image className="pe-2" src={navbarLogo} height={50} style={{ marginBottom: 3 }} /> Full Cycle Takeout</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={ComponentIDs.basicNavbarNav} />
         <Navbar.Collapse id={ComponentIDs.basicNavbarNav}>

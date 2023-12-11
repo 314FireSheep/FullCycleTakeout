@@ -37,14 +37,20 @@ const ReturnPage = () => {
 
   return ready ? (
     <Container className="mt-5">
-      <Row className="justify-content-center text-center">
-        <h1>Make Sure all the items are ready to return</h1>
-        <br />
-        <h3>Order ID: {OrderId}</h3>
+      <Row className="justify-content-center mb-4 mx-1">
+        <Col xs={11} md={8} className="header text-white text-center">
+          <h1 className="text-center">Make Sure all the items are ready to return</h1>
+        </Col>
+      </Row>
+
+      <Row className="justify-content-center mx-1">
+        <Col xs={11} md={8} className="header text-white text-center" style={{ backgroundColor: '#908D8B' }}>
+          <h4>Order ID: {OrderId}</h4>
+        </Col>
       </Row>
 
       <Row xs={1} md={2} className="g-4 justify-content-center m-3">
-        <Card className="p-5" style={{ backgroundColor: '#e1ecf7' }}>
+        <Card className="p-5" style={{ backgroundColor: 'white' }}>
           <Card.Title>
             <h3 className="text-center">Order Details</h3>
             <br />
@@ -62,7 +68,7 @@ const ReturnPage = () => {
                 </ul>
               </Card>
             </Col>
-            <Button onClick={handleReturn} variant="primary" type="submit" className="w-100 my-2">Return</Button>
+            <Button onClick={handleReturn} variant="primary" type="submit" className="w-100 my-2 mt-3">Return</Button>
           </Card.Title>
         </Card>
       </Row>

@@ -5,7 +5,7 @@
 :root {
   --firesheep-navbar-bg: #373633;
   --firesheep-navbar-text: #e8e8e3;
-  --firesheep-navbar-highlight-text: var(--bs-gray-500);
+  --firesheep-navbar-highlight-text: #9CBBBD;
   --firesheep-navbar-bg-rgb: 36, 36, 36;
 }
 /* Change bootstrap variable values.
