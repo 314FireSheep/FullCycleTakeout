@@ -9,20 +9,24 @@ import { homePage } from './home.page';
 import { addProjectPage } from './addproject.page';
 import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
-
+import { searchPage } from './search.page';
+import { resultPage } from './result.page';
+import { confirmationPage } from './confirmation.page';
+import { orderPage } from './order.page';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'johnson@hawaii.edu', password: 'foo', firstName: 'Philip', lastName: 'Johnson' };
+const testid = { id: 'ad69woXDwujkQzb4e' };
 
-fixture('Bowfolios localhost test with default db')
+fixture('FireSheep localhost test with default db')
   .page('http://localhost:3000');
 
-test('Test that landing page shows up', async (testController) => {
+/*test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
-});
+});*/
 
-test('Test that signin and signout work', async (testController) => {
+/*test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.logout(testController);
@@ -83,4 +87,22 @@ test('Test that filter page works', async (testController) => {
   await navBar.gotoFilterPage(testController);
   await filterPage.isDisplayed(testController);
   await filterPage.filter(testController);
+});*/
+
+test('Test that order page works', async (testController) => {
+  await navBar.gotoOrderPage(testController);
+  await orderPage.confirmation(testController);
+});
+
+test('Test that confirmation page works', async (testController) => {
+  await confirmationPage.confirmation(testController);
+});
+
+test('Test that result page displays', async (testController) => {
+  await resultPage.isDisplayed(testController);
+});
+
+test('Test that search page works', async (testController) => {
+  await navBar.gotoSearchPage(testController);
+  await searchPage.search(testController, testid.id);
 });

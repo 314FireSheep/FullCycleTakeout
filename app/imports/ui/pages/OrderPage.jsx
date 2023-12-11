@@ -84,7 +84,9 @@ const OrderPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const itemsObject = {};
+    const itemsObject = {
+      status: 'rented',
+    };
     order.forEach(item => {
       if (item.quantity > 0) {
         itemsObject[item.name] = item.quantity;
