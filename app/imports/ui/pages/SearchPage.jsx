@@ -49,32 +49,39 @@ const SearchPage = () => {
               <Button variant="primary" style={{ backgroundColor: '#84a98c', borderColor: '#84a98c' }} type="submit" className="my-3 px-5 ani mb-5">Search</Button>
               {
                 ready && AdminUser ? (
-                  <table>
-                    <thead>
-                      <tr style={{ backgroundColor: '#536B60' }} className="text-white">
-                        <th>ID</th>
-                        <th>Status</th>
-                        <th>Items</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {OrderData.map((data, index) => (
-                        <tr key={index}>
-                          <td className="px-4">{Object.values(data)[0]}</td>
-                          <td>{Object.values(data)[1]}</td>
-                          <td>
-                            {Object.entries(data)
-                              .slice(2)
-                              .map(([key, value]) => (
-                                <div key={key}>
-                                  <strong>{key}:</strong> {value}
-                                </div>
-                              ))}
-                          </td>
+                  <div className="table-responsive">
+                    <table className="table">
+                      <thead>
+                        <tr style={{ backgroundColor: '#536B60' }} className="text-white">
+                          <th>ID</th>
+                          <th>Status</th>
+                          <th>Items</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {OrderData.map((data, index) => (
+                          <tr key={index}>
+                            <td className="px-4">{Object.values(data)[0]}</td>
+                            <td>{data.status}</td>
+                            <td>
+                              {Object.entries(data)
+                                .slice(2)
+                                .map(([key, value]) => {
+                                  if (typeof value === 'number') {
+                                    return (
+                                      <div key={key}>
+                                        <strong>{key}:</strong> {value}
+                                      </div>
+                                    );
+                                  }
+                                  return null;
+                                })}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 ) : <LoadingSpinner />
               }
             </Form>
