@@ -1,3 +1,4 @@
+import { Selector } from 'testcafe';
 import { landingPage } from './landing.page';
 import { signInPage } from './signin.page';
 import { signOutPage } from './signout.page';
@@ -42,4 +43,15 @@ test('Test that search page works and functions', async (testController) => {
   await signInPage.signin(testController, credentials.adminUser, credentials.password);
   await navBar.gotoSearchPage(testController);
   await searchPage.search(testController, testid.id);
+});
+
+test('Test that return page and function works', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.adminUser, credentials.password);
+  await navBar.gotoSearchPage(testController);
+  const firstTdFirstTr = Selector('tbody tr:first-child td:first-child').innerText;
+  const text = await firstTdFirstTr();
+  await searchPage.search(testController, text);
+  await resultPage.isDisplayed(testController);
+  await resultPage.returnOrder(testController);
 });

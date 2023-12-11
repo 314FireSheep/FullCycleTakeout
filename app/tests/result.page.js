@@ -12,6 +12,10 @@ class ResultPage {
     await testController.wait(5000);
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async returnOrder(testController) {
+    await testController.click(Selector('#returnOrder'));
+  }
 }
 
 export const resultPage = new ResultPage();
