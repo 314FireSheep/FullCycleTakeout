@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { Orders } from '../../api/order/Order';
 
 const addOrder = 'Order.add';
