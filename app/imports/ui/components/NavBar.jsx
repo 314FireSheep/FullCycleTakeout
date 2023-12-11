@@ -32,7 +32,7 @@ const NavBar = () => {
             ) : ''}
             {AdminUser ? (
               [
-                <Nav.Link as={NavLink} to="/search" key="search">Search</Nav.Link>,
+                <Nav.Link as={NavLink} to="/search" key="search" id={ComponentIDs.searchMenu}>Search</Nav.Link>,
                 <Nav.Link as={NavLink} to="/return" key="return">Return</Nav.Link>]
             ) : ''}
           </Nav>

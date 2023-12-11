@@ -47,7 +47,7 @@ const SearchPage = () => {
                   className="p-3"
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="my-3 px-5">Search</Button>
+              <Button variant="primary" type="submit" className="my-3 px-5" id="searchBut">Search</Button>
               {
                 ready && AdminUser ? (
                   <ul>
