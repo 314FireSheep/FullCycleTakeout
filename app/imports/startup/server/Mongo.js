@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
+import { Orders } from '../../api/order/Order';
 
 /* eslint-disable no-console */
 
@@ -26,6 +27,7 @@ if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultAccounts) {
     console.log('Creating the default user(s)');
     Meteor.settings.defaultAccounts.forEach(({ email, password, role }) => createUser(email, password, role));
+    Meteor.settings.defaultOrders.map(order => Orders.collection.insert(order));
   } else {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }

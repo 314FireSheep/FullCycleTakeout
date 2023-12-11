@@ -10,7 +10,7 @@ Meteor.methods({
   'Order.add'(order, userId) {
     const id = Orders.collection.insert(order);
     const userToUpdate = Meteor.users.findOne({ username: userId });
-    if (userToUpdate && !Roles.userIsInRole(Meteor.userId(), 'admin')) {
+    if (userToUpdate) {
       // Update the user's document
       Meteor.users.update(
         { _id: userToUpdate._id },
