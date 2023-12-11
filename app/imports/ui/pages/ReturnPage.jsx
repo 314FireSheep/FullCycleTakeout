@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { returnOrder } from '../../startup/both/Methods';
+import { PageIDs } from '../utilities/ids';
 
 const ReturnPage = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const ReturnPage = () => {
   };
 
   return ready ? (
-    <Container className="mt-5">
+    <Container className="mt-5" id={PageIDs.returnPage}>
       <Row className="justify-content-center text-center">
         <h1>Make Sure all the items are ready to return</h1>
         <br />
@@ -62,7 +63,7 @@ const ReturnPage = () => {
                 </ul>
               </Card>
             </Col>
-            <Button onClick={handleReturn} variant="primary" type="submit" className="w-100 my-2">Return</Button>
+            <Button onClick={handleReturn} variant="primary" type="submit" className="w-100 my-2" id="#returnOrder">Return</Button>
           </Card.Title>
         </Card>
       </Row>

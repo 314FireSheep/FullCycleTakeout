@@ -58,4 +58,5 @@ export const PageIDs = {
   resultPage: 'resultPage',
   confirmationPage: 'confirmationPage',
   orderPage: 'orderPage',
+  returnPage: 'returnPage',
 };
