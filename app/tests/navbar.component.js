@@ -26,46 +26,6 @@ class NavBar {
     await testController.click(`#${ComponentIDs.loginDropdownSignIn}`);
   }
 
-  async gotoProfilesPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click(`#${ComponentIDs.profilesMenuItem}`);
-  }
-
-  async gotoInterestsPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click(`#${ComponentIDs.interestsMenuItem}`);
-  }
-
-  async gotoProjectsPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click(`#${ComponentIDs.projectsMenuItem}`);
-  }
-
-  async gotoAddProjectPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click(`#${ComponentIDs.addProjectMenuItem}`);
-  }
-
-  async gotoFilterPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
-    if (!visible) {
-      await testController.click('button.navbar-toggler');
-    }
-    await testController.click(`#${ComponentIDs.filterMenuItem}`);
-  }
-
   /** Check that the specified user is currently logged in. */
   async isLoggedIn(testController, username) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
@@ -98,7 +58,6 @@ class NavBar {
   }
 
   async gotoSearchPage(testController) {
-    await this.ensureLogout(testController);
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
@@ -107,12 +66,20 @@ class NavBar {
   }
 
   async gotoOrderPage(testController) {
-    await this.ensureLogout(testController);
+    //await this.ensureLogout(testController);
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
     await testController.click(`#${ComponentIDs.orderMenu}`);
+  }
+
+  async gotoHistoryPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.historyPage}`);
   }
 }
 

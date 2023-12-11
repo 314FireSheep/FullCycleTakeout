@@ -26,13 +26,12 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls={ComponentIDs.basicNavbarNav} />
         <Navbar.Collapse id={ComponentIDs.basicNavbarNav}>
           <Nav className="me-auto justify-content-start">
-            <Nav.Link as={NavLink} to="/order" key="order">Order</Nav.Link>
+            <Nav.Link as={NavLink} to="/order" key="order" id={ComponentIDs.orderMenu}>Order</Nav.Link>
             {currentUser ? (
-              <Nav.Link as={NavLink} to="/history" key="history">History</Nav.Link>
+              <Nav.Link as={NavLink} to="/history" key="history" id={ComponentIDs.historyPage}>History</Nav.Link>
             ) : ''}
             {AdminUser ? (
-              [
-                <Nav.Link as={NavLink} to="/search" key="search">Search</Nav.Link>]
+              <Nav.Link as={NavLink} to="/search" key="search" id={ComponentIDs.searchMenu}>Search</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">

@@ -4,6 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Orders } from '../../api/order/Order';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PageIDs } from '../utilities/ids';
 
 function getOrderData(ids) {
   return Orders.collection.find({ _id: { $in: ids } }).fetch();
@@ -19,7 +20,7 @@ const HistoryPage = () => {
   }, []);
   const OrderData = getOrderData(currentUser.profile?.order || []);
   return ready && currentUser ? (
-    <Container className="mt-5 vh-100">
+    <Container className="mt-5 vh-100" id={PageIDs.historyPage}>
       <Row className="justify-content-center mb-5 mx-1">
         <Col xs={11} md={8} className="header text-white">
           <h1 className="text-center">History Page</h1>

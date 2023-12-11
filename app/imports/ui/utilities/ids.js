@@ -39,6 +39,7 @@ export const ComponentIDs = {
   studentidBut: 'studentidBut',
   creditBut: 'creditBut',
   submitBut: 'submitBut',
+  historyPage: 'historyPage',
 };
 
 export const PageIDs = {
@@ -58,5 +59,6 @@ export const PageIDs = {
   resultPage: 'resultPage',
   confirmationPage: 'confirmationPage',
   orderPage: 'orderPage',
+  historyPage: 'historyPage',
   returnPage: 'returnPage',
 };
