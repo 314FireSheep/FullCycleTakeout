@@ -1,6 +1,5 @@
 import { Selector } from 'testcafe';
-import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
-import { resultPage } from './result.page';
+import { PageIDs } from '../imports/ui/utilities/ids';
 
 class ConfirmationPage {
   constructor() {
@@ -15,7 +14,7 @@ class ConfirmationPage {
 
   /** Checks this page is displayed, then adds a new project */
   async confirmation(testController) {
-    //await testController.wait(1000);
+    // await testController.wait(1000);
     await this.isDisplayed(testController);
     await testController.click(Selector('#cashBut'));
     await testController.click(Selector('.swal-button--confirm'));
