@@ -40,7 +40,7 @@ const ReturnPage = () => {
     <Container className="mt-5" id={PageIDs.returnPage}>
       <Row className="justify-content-center mb-4 mx-1">
         <Col xs={11} md={8} className="header text-white text-center">
-          <h1 className="text-center">Make Sure all the items are ready to return</h1>
+          <h1 className="text-center">Make sure all the items are ready to return</h1>
         </Col>
       </Row>
       <Row className="justify-content-center mx-1">
